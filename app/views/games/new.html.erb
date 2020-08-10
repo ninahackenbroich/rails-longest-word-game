@@ -1,15 +1,19 @@
 
-<h1>Scrabble GO!</h1>
-<p>Here are your random letters. Try to make the longest word possible out of it:</p>
-<% @letters.each do |letter| %>
-  <%= letter %>
-<% end %>
+<div class="containermain">
+  <h1>Scrabble GO!</h1>
+  <p>Here are your random letters. Try to make the longest word possible out of it:</p>
+  <div class="flex">
+    <% @letters.each do |letter| %>
+      <div class="letters"><%= letter %></div>
+    <% end %>
+  </div>
 
-
-
-<form action="/score" method="post">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= hidden_field_tag :letters, @letters %>
-  <input type="text" name="word" placeholder="Your word ..." />
-  <input class="btn" type="submit" value="Score!">
-</form>
+  <form action="/score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <div class="input-container">
+      <input type="text" name="word" placeholder="Your word ..." />
+    </div>
+    <input class="btn" type="submit" value="Score!">
+  </form>
+</div>
